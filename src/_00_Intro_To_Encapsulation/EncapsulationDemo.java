@@ -15,7 +15,23 @@ public class EncapsulationDemo {
      */
 
     public static void main(String[] args) {
-
+    Car car1 = new Car(47.324, 12.478, "Bronze", 47.47);
+    System.out.println(car1.getFuelInTank());
+   System.out.println(car1.getTankCapacity());
+    car1.setFuelInTank(46);
+    System.out.println(car1.getFuelInTank());
+    car1.drive();
+    car1.color = "Yellow";
+    System.out.println(car1.color);
+    System.out.println(car1.mpg);
+    car1.mpg = 29.54;
+    System.out.println(car1.mpg);
+    SUV van = new SUV(5.0, 4.5, "Black", 1000.0, 20);
+    System.out.println(van.getNumSeats());
+    van.setNumSeats(25);
+    System.out.println(van.getNumSeats());
+    van.drive();
+    van.offroad();
     }
 
 }
@@ -163,7 +179,7 @@ class SUV extends Car {
 
     }
 
-    private void offroad() {
+    public void offroad() {
 
         drive();
 
