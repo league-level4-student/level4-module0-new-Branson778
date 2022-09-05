@@ -106,9 +106,11 @@ public class SnakeGame implements ActionListener, KeyListener {
         int caseed = 0;
     	if(e.getKeyCode()==KeyEvent.VK_UP) {
     		caseed = 0;
+    		System.out.println("UP");
         }
         if(e.getKeyCode()==KeyEvent.VK_DOWN) {
         	caseed = 1;
+        	System.out.println("DOWN");
         }
         if(e.getKeyCode()==KeyEvent.VK_LEFT) {
         	caseed = 2;
@@ -119,9 +121,11 @@ public class SnakeGame implements ActionListener, KeyListener {
         switch(caseed) {
         case 0:
         	snake.setDirection(Direction.UP);
+        	System.out.println("UP 2");
         break;
         case 1:
         	snake.setDirection(Direction.DOWN);
+        	System.out.println("DOWN 2");
             break;
         case 2:
         	snake.setDirection(Direction.LEFT);
@@ -185,8 +189,10 @@ int cased = JOptionPane.showConfirmDialog(null, "Would You Like To Try Again?");
           case 0:
         	  snake.resetLocation();
         	  setFoodLocation();
+        	  timer.restart();
         	  break;
         	default:
+        		System.exit(0);
         		break;
           }
         
@@ -217,7 +223,9 @@ int cased = JOptionPane.showConfirmDialog(null, "Would You Like To Try Again?");
          * If the location of the snake's head is equal to the location of the
          * food, feed the snake and set the food location.
          */
-         if(snake.getHeadLocation()==foodLocation) {
+         if(snake.getHeadLocation().equals(foodLocation)) {
+        	 System.out.println(snake.getHeadLocation());
+        	 System.out.println(foodLocation);
         	 snake.feed();
         	 setFoodLocation();
          }

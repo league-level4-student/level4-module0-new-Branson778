@@ -80,7 +80,7 @@ public class Snake {
          * Use a loop starting at the end of the ArrayList and stop before the
          * head of the snake (index 0) or you will go out of bounds.
          */
-        for (int i = snake.size(); i > 0; i--) {
+        for (int i = snake.size()-1; i > 0; i--) {
 			if(i!=0) {
 				snake.get(i).setLocation(snake.get(i-1).getLocation());
 			}
@@ -93,6 +93,7 @@ public class Snake {
          * location.
          */
         Location headMovement = new Location(nextX,nextY);
+        snake.get(0).setLocation(headMovement);
         
 
         // Set the canMove member variable to true.
@@ -120,7 +121,7 @@ public class Snake {
     }
 
     private boolean isOppositeDirection(Direction direction) {
-        boolean isOpposite = true;
+        boolean isOpposite = false;
         /*
          * Complete the method so it returns true if the passed in Direction is
          * the opposite value of the currentDirection member variable.
@@ -129,16 +130,16 @@ public class Snake {
          * the passed in direction is DOWN this method should return false.
          */
        if(currentDirection == Direction.UP && direction == Direction.DOWN) {
-    	   isOpposite = false;
+    	   isOpposite = true;
        }
        if(currentDirection == Direction.DOWN && direction == Direction.UP) {
-    	   isOpposite = false;
+    	   isOpposite = true;
        }
        if(currentDirection == Direction.RIGHT && direction == Direction.LEFT) {
-    	   isOpposite = false;
+    	   isOpposite = true;
        }
        if(currentDirection == Direction.LEFT && direction == Direction.RIGHT) {
-    	   isOpposite = false;
+    	   isOpposite = true;
        }
 
         return isOpposite;
